@@ -1,0 +1,34 @@
+#topMenu {
+    position: fixed;
+    width: 100%;
+    top: 0; left: 0; right: 0;
+    padding: 20px 40px;
+    background-color: #454545;
+    border: #656565 2px;
+    
+}
+
+#topMenu .header {
+    padding-right: 100px;
+    
+    color: white;
+    vertical-align: middle;
+    font-family: D2Coding, monospace;
+    font-weight: bolder;
+    font-size: 30px;
+    float: left;
+}
+
+#topMenu .button {
+    padding: 15px 25px;
+    color: white;
+    /*background-color: #656565;*/
+    
+    vertical-align: middle;
+    font-family: "Consolas", monospace;
+    font-size: 20px;
+    
+    float: left;
+    list-style: none;
+    display: block;
+}
