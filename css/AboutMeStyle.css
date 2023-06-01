@@ -13,3 +13,13 @@
     text-align: justify;
     font-family: "Consolas", monospace;
 }
+
+@media (max-width: 600px) {
+    #portrait {
+        float: none;
+    }
+    
+    #descMe {
+        
+    }
+}
