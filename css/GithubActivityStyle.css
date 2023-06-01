@@ -34,20 +34,11 @@ h3 {
     margin-left: 50px;
 }
 
-
-
-#portrait {
-    margin-left: 100px;
-    margin-right: 30px;
-    flex: 0 0 auto;
-    max-width: 33%;
-    float: left;
-}
-
-#descMe {
-    color: lightgray;
-    margin-left: 30px;
-    margin-right: 100px;
-    text-align: justify;
-    font-family: "Consolas", monospace;
+@media (max-width: 600px) {
+    #avatar {
+        float: none;
+    }
+    .profile-text, #githubCommitActivity {
+        margin-left: 0;
+    }
 }
