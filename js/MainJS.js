@@ -2,7 +2,7 @@ $('document').ready(async () => {
     $('#contents').load("./html/AboutMe.html")
     // $('#contents').load("./html/GithubProfile.html")
     // $('#contents').load("./html/GithubRepos.html")
-    await initUserData()
+    await initUserData("1135975331")
     
     $('.aboutMe').click(async (event) => {
         console.log("aboutMe Clicked")
@@ -13,9 +13,21 @@ $('document').ready(async () => {
     $('.githubProfile').click(async (event) => {
         $('#contents').load("./html/GithubProfile.html")
         // await loadHtml('#contents', "./html/GithubProfile.html")
-        await initUserData()
-        debugConsoleLog()
-        modifyHTMLGithub()
+        let loadProfile = async function(userName) {
+            await initUserData(userName)
+            debugConsoleLog()
+            modifyHTMLGithub()
+        }
+        await loadProfile("1135975331")
+
+        $('button.profile-search-button').on('click', async function(event) {
+            // if(event.keyCode !== 13) return;
+            console.log("profile search button clicked")
+            let userName = $('.profile-search').val()
+
+            await loadProfile(userName)
+            $('#commitHistoryGraph').attr('src', `https://ghchart.rshah.org/${userName}`)
+        })
     })
     
     $('.repos').click(async (event)=> {
@@ -25,19 +37,29 @@ $('document').ready(async () => {
         let itemsPerPage = 5;
         
         $('#contents').load("./html/GithubRepos.html")
-        await initUserData()
-        // userData.repos.reverse();
-        displayRepositories(userData.repos, itemsPerPage, 1)
-        displayPageButtons(userData.repos.length, itemsPerPage, 1)
+        let loadRepos = async function(userName) {
+            await initUserData(userName)
+            // userData.repos.reverse();
+            displayRepositories(userData.repos, itemsPerPage, 1)
+            displayPageButtons(userData.repos.length, itemsPerPage, 1)
 
 
-        // $('.list-page').off('click', '.list-page-number', listPageNumberClickFunc)
-        $('.list-page').on('click', '.list-page-number', () => {
-            console.log('page clicked')
-            console.log(`${$(this).text()}`)
-            let clickedPageNumber = parseInt($(this).text());
-            displayRepositories(userData.repos, itemsPerPage, clickedPageNumber)
-            displayPageButtons(userData.repos.length, itemsPerPage, clickedPageNumber)
+            // $('.list-page').off('click', '.list-page-number', listPageNumberClickFunc)
+            $('.list-page').on('click', '.list-page-number', function() {
+                console.log('page clicked')
+                console.log(`${$(this).text()}`)
+                let clickedPageNumber = parseInt($(this).text());
+                displayRepositories(userData.repos, itemsPerPage, clickedPageNumber)
+                displayPageButtons(userData.repos.length, itemsPerPage, clickedPageNumber)
+            })
+        }
+        await loadRepos("1135975331")
+        
+        $('button.profile-search-button').on('click', async function(event) {
+            console.log("profile search in repoList button clicked")
+            let userName = $('.profile-search').val()
+            
+            await loadRepos(userName)
         })
     })
     
@@ -45,6 +67,7 @@ $('document').ready(async () => {
     $('#navbarIcon').click(() => {
         $('.navbar').toggleClass('active')
     })
+    
     
 })
 
