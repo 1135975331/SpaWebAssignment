@@ -13,23 +13,96 @@
     padding-right: 100px;
     
     color: white;
-    vertical-align: middle;
+    vertical-align: center;
+    horiz-align: center;
     font-family: D2Coding, monospace;
     font-weight: bolder;
     font-size: 30px;
     float: left;
 }
 
-#topMenu .button {
-    padding: 15px 25px;
-    color: white;
-    /*background-color: #656565;*/
+@media (min-width: 950px) {
+    #topMenu .button {
+        padding: 15px 15px;
+        margin: auto 10px;
+        color: white;
+        /*background-color: #656565;*/
+        border-radius: 10px;
+        
+        vertical-align: middle;
+        font-family: "Consolas", monospace;
+        font-size: 20px;
+
+        float: left;
+        list-style: none;
+        display: block;
+        transition-duration: 0.3s;
+    }
     
-    vertical-align: middle;
-    font-family: "Consolas", monospace;
-    font-size: 20px;
+    #topMenu .button:hover {
+        background-color: #888888;
+        color: black;
+        transition-duration: 0.3s;
+    }
     
-    float: left;
-    list-style: none;
-    display: block;
+    #navbarIcon, #topMenu > img, ul.navbar {
+        display: none;
+    }
+}
+
+@media (max-width: 949px) {
+    #navbarIcon {
+        width: 50px;
+        height: 50px;
+        float: right;
+        margin-right: 10%;
+    }
+    
+    #topMenu .button {
+        display: none;
+    }
+    
+    #topMenu > img {
+        border-radius: 10px;
+        transition-duration: 0.3s;
+    }
+    
+    #topMenu > img:hover {
+        background-color: #757575;
+        transition-duration: 0.3s;
+    }
+    
+    
+    .navbar {
+        margin-top: 5%;
+    }
+    
+    .navbarItem {
+        display: none;
+    }
+    
+    .navbar.active > .navbarItem {
+        padding: 10px 10px;
+        margin: 10px 38%;
+        color: white;
+        /*background-color: #656565;*/
+        border-radius: 10px;
+
+        text-align: center;
+        vertical-align: center;
+        horiz-align: center;
+        font-family: "Consolas", monospace;
+        font-size: 20px;
+
+        list-style: none;
+        display: block;
+        transition-duration: 0.3s;
+    }
+    
+   .navbar.active > .navbarItem:hover {
+       background-color: #888888;
+       color: black;
+       transition-duration: 0.3s;
+   }
+    
 }
