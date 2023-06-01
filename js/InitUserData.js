@@ -1,5 +1,5 @@
-﻿async function initUserData() {
-    await $.ajax({ url: 'https://api.github.com/users/1135975331', success: function(data) {
+﻿async function initUserData(userName) {
+    await $.ajax({ url: `https://api.github.com/users/${userName}`, success: function(data) {
             // console.log(data)
             setUserData(userData, data)
         } });
