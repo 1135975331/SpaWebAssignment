@@ -1,0 +1,53 @@
+﻿#reposContent {
+    color: lightgray;
+    font-family: D2Coding, "Consolas", monospace;
+    margin: 8%
+}
+
+ul {
+    list-style-type: none;
+}
+
+.repo-box {
+    margin-left: 2%;
+    padding: 20px 35px;
+    background-color: #cccccc25;
+    border: lightgray solid 2px;
+    border-radius: 15px;
+    transition-duration: 0.3s;
+}
+
+.repo-box:hover {
+    background-color: #cccccc45;
+    transition-duration: 0.3s;
+}
+
+.repo-name {
+    color: lightgray;
+    padding-right: 15px;
+    font-size: 1.5em;
+    font-weight: bold;
+    text-decoration-line: none;
+    transition-duration: 0.3s;
+    float: left;
+}
+
+.repo-name:hover {
+    color: lightgray;
+    text-decoration: underline;
+    transition-duration: 0.3s;
+}
+
+.repo-lang, .repo-id {
+    font-size: 0.75em;
+}
+
+.repo-desc {
+    padding-top: 5px;
+    padding-left: 40px;
+}
+
+.repo-created, .repo-updated, .repo-pushed {
+    padding-left: 20px;
+    padding-bottom: 3px;
+}
