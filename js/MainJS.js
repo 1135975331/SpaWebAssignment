@@ -16,21 +16,31 @@ $('document').ready(async function() {
         await initUserData()
         debugConsoleLog()
         modifyHTMLGithub()
-        
-        
-        // userData.repos.sort(function(a, b) {})
-        
-        
-
     })
     
     $('#repos').click(async function(event) {
         console.log("third Clicked")
         // await loadHtml('#contents', "./html/GithubRepos.html")
+        
+        let itemsPerPage = 5;
+        
         $('#contents').load("./html/GithubRepos.html")
         await initUserData()
-        displayRepositories(userData.repos)
+        // userData.repos.reverse();
+        displayRepositories(userData.repos, itemsPerPage, 1)
+        displayPageButtons(userData.repos.length, itemsPerPage, 1)
+
+
+        // $('.list-page').off('click', '.list-page-number', listPageNumberClickFunc)
+        $('.list-page').on('click', '.list-page-number', function() {
+            console.log('page clicked')
+            console.log(`${$(this).text()}`)
+            let clickedPageNumber = parseInt($(this).text());
+            displayRepositories(userData.repos, itemsPerPage, clickedPageNumber)
+            displayPageButtons(userData.repos.length, itemsPerPage, clickedPageNumber)
+        })
     })
+    
 })
 
 
