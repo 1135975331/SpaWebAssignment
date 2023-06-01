@@ -1,16 +1,16 @@
-$('document').ready(async function() {
-    // $('#contents').load("./html/AboutMe.html")
+$('document').ready(async () => {
+    $('#contents').load("./html/AboutMe.html")
     // $('#contents').load("./html/GithubProfile.html")
-    await $('#contents').load("./html/GithubRepos.html")
+    // $('#contents').load("./html/GithubRepos.html")
     await initUserData()
     
-    $('#aboutMe').click(async function(event) {
+    $('.aboutMe').click(async (event) => {
         console.log("aboutMe Clicked")
         // $('#contents').load("./html/AboutMe.html")
         await loadHtml('#contents', "./html/AboutMe.html")
     })
     
-    $('#githubProfile').click(async function(event) {
+    $('.githubProfile').click(async (event) => {
         $('#contents').load("./html/GithubProfile.html")
         // await loadHtml('#contents', "./html/GithubProfile.html")
         await initUserData()
@@ -18,8 +18,8 @@ $('document').ready(async function() {
         modifyHTMLGithub()
     })
     
-    $('#repos').click(async function(event) {
-        console.log("third Clicked")
+    $('.repos').click(async (event)=> {
+        console.log("Repo Clicked")
         // await loadHtml('#contents', "./html/GithubRepos.html")
         
         let itemsPerPage = 5;
@@ -32,13 +32,18 @@ $('document').ready(async function() {
 
 
         // $('.list-page').off('click', '.list-page-number', listPageNumberClickFunc)
-        $('.list-page').on('click', '.list-page-number', function() {
+        $('.list-page').on('click', '.list-page-number', () => {
             console.log('page clicked')
             console.log(`${$(this).text()}`)
             let clickedPageNumber = parseInt($(this).text());
             displayRepositories(userData.repos, itemsPerPage, clickedPageNumber)
             displayPageButtons(userData.repos.length, itemsPerPage, clickedPageNumber)
         })
+    })
+    
+    
+    $('#navbarIcon').click(() => {
+        $('.navbar').toggleClass('active')
     })
     
 })
