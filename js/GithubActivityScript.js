@@ -4,7 +4,7 @@ function modifyHTMLGithub() {
     $('#avatar').attr('src', userData.avatar_url);
     $('#name>a').html(userData.name)
     $('#name>a').attr('href', `https://github.com/${userData.name}`)
-    $('#bio').html(`"${userData.bio}"`)
+    $('#bio').html(`"${getBio(userData)}"`)
     $('#email').html("Email: " + getEmail(userData))
     // $('#email').html("Email: 1135975331@kangwon.ac.kr")
     $('#location').html("Location: " + getLocation(userData))
@@ -12,6 +12,10 @@ function modifyHTMLGithub() {
     $('#following').html("Following: " + userData.following)
     $('#created').html("Account Created: " + userData.account_created)
     $('#updated').html("Account Updated: " + userData.account_updated)
+}
+
+function getBio(userData) {
+    return userData.bio === null ? `<i>No Bio Provided</i>` : userData.bio;
 }
 
 function getEmail(userData) {
@@ -24,8 +28,5 @@ function getEmail(userData) {
 }
 
 function getLocation(userData) {
-    if(userData.location === null)
-        return `<i>No Location Provided</i>`
-    else
-        return userData.location
+    return userData.location === null ? `<i>No Location Provided</i>` : userData.location;
 }
