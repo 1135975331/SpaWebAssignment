@@ -10,6 +10,7 @@
 }
 
 #topMenu .header {
+    overflow: hidden;
     padding-right: 100px;
     
     color: white;
@@ -56,6 +57,7 @@
         height: 50px;
         float: right;
         margin-right: 10%;
+        overflow: hidden;
     }
     
     #topMenu .button {
@@ -79,6 +81,10 @@
     
     .navbarItem {
         display: none;
+    }
+    
+    .navbar.active {
+        margin-top: 60px;
     }
     
     .navbar.active > .navbarItem {
@@ -105,4 +111,13 @@
        transition-duration: 0.3s;
    }
     
+   #topMenu > .header {
+       float: left;
+       display: flex;
+       padding-right: 0%;
+       padding-bottom: 0px;
+       width: 300px;
+       overflow: hidden;
+       text-overflow: clip;
+   }
 }
